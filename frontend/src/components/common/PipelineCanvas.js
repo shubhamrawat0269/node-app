@@ -1,19 +1,19 @@
 import { useState, useRef, useCallback } from "react";
 import ReactFlow, { Controls, Background, MiniMap } from "reactflow";
-import { useStore } from "./store";
+import { useStore } from "../../store/store";
 import { shallow } from "zustand/shallow";
-import { InputNode } from "./components/nodes/InputNode";
-import { LLMNode } from "./components/nodes/LLMNode";
-import { OutputNode } from "./components/nodes/OutputNode";
-import { TextNode } from "./components/nodes/TextNode";
-import APINode from "./components/nodes/APINode";
-import DelayNode from "./components/nodes/DelayNode";
-import EmailNode from "./components/nodes/EmailNode";
-import FilterNode from "./components/nodes/FilterNode";
-import MathNode from "./components/nodes/MathNode";
+import { InputNode } from "../nodes/InputNode";
+import { LLMNode } from "../nodes/LLMNode";
+import { OutputNode } from "../nodes/OutputNode";
+import { TextNode } from "../nodes/TextNode";
+import APINode from "../nodes/APINode";
+import DelayNode from "../nodes/DelayNode";
+import EmailNode from "../nodes/EmailNode";
+import FilterNode from "../nodes/FilterNode";
+import MathNode from "../nodes/MathNode";
 
 import "reactflow/dist/style.css";
-import { useTheme } from "./hooks/useTheme";
+import { useTheme } from "../../hooks/useTheme";
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
