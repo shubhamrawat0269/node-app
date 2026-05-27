@@ -1,5 +1,3 @@
-// submit.js
-
 export const SubmitButton = () => {
   return (
     <div
@@ -7,7 +5,7 @@ export const SubmitButton = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "20px",
+        padding: "10px",
       }}
     >
       <button className="submit-btn" type="submit">

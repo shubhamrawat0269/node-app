@@ -1,5 +1,5 @@
-import { useMemo, useRef, useEffect, useState } from "react";
 import BaseNode from "../components/BaseNode";
+import { useMemo, useRef, useEffect, useState } from "react";
 
 const variableRegex = /\{\{\s*([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\}\}/g;
 
@@ -15,9 +15,7 @@ export const TextNode = ({ data }) => {
     }));
   }, [text]);
 
-  /*
-    TODO (Shubham) : Auto Resize feature
-  */
+  /*  TODO (1) : Auto Resize feature */
 
   useEffect(() => {
     if (textareaRef.current) {
@@ -28,10 +26,7 @@ export const TextNode = ({ data }) => {
     }
   }, [text]);
 
-  /*
-   TODO (Shubham) : Dynamic node width
-  */
-
+  /* TODO (2) : Dynamic node width */
   const dynamicWidth = Math.min(Math.max(text.length * 7, 260), 500);
 
   return (
@@ -47,7 +42,7 @@ export const TextNode = ({ data }) => {
         <textarea
           ref={textareaRef}
           value={text}
-          placeholder="Type something like {{input}}"
+          placeholder="Type something"
           onChange={(e) => setText(e.target.value)}
           style={{
             resize: "none",
