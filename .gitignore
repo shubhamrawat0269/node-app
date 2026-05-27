@@ -1,0 +1,36 @@
+# Node
+node_modules/
+npm-debug.log*
+/build/
+/dist/
+.cache/
+
+# Python
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Env
+.env
+.env.*
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log
+
+# DropBox/tmp
+.dropbox
+
+# Others
+coverage/
+
+# Ignore frontend git backup
+/frontend/.git.bak/
