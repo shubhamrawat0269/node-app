@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BaseNode from "../components/BaseNode";
+import BaseNode from "../common/BaseNode";
 
 const DelayNode = ({ data }) => {
   const [delay, setDelay] = useState(data?.delay || 1000);

@@ -1,19 +1,14 @@
 import { useState } from "react";
-import BaseNode from "../components/BaseNode";
+import BaseNode from "../common/BaseNode";
 
 const FilterNode = ({ data }) => {
-  const [condition, setCondition] =
-    useState(data?.condition || "");
+  const [condition, setCondition] = useState(data?.condition || "");
 
   return (
     <BaseNode
       title="Filter Node"
-      inputs={[
-        { id: "items" },
-      ]}
-      outputs={[
-        { id: "filtered-items" },
-      ]}
+      inputs={[{ id: "items" }]}
+      outputs={[{ id: "filtered-items" }]}
     >
       <div className="node-input">
         <label>Condition</label>
@@ -22,9 +17,7 @@ const FilterNode = ({ data }) => {
           type="text"
           placeholder="item.age > 18"
           value={condition}
-          onChange={(e) =>
-            setCondition(e.target.value)
-          }
+          onChange={(e) => setCondition(e.target.value)}
         />
       </div>
 

@@ -1,4 +1,4 @@
-import BaseNode from "../components/BaseNode";
+import BaseNode from "../common/BaseNode";
 import { useMemo, useRef, useEffect, useState } from "react";
 
 const variableRegex = /\{\{\s*([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\}\}/g;

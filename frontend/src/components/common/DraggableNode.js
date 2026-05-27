@@ -1,4 +1,4 @@
-import { useTheme } from "./ThemeContext";
+import { useTheme } from "../../ThemeContext";
 
 export const DraggableNode = ({ type, label }) => {
   const { isDarkMode } = useTheme();
@@ -28,7 +28,7 @@ export const DraggableNode = ({ type, label }) => {
         flexDirection: "column",
         transition: "background-color 0.3s ease",
         color: "#fff",
-        padding: '0.5rem 1.25rem'
+        padding: "0.5rem 1.25rem",
       }}
       draggable
     >

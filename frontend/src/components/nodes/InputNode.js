@@ -1,4 +1,4 @@
-import BaseNode from "../components/BaseNode";
+import BaseNode from "../common/BaseNode";
 
 export const InputNode = ({ data }) => {
   return (

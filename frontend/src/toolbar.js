@@ -1,4 +1,4 @@
-import { DraggableNode } from "./draggableNode";
+import { DraggableNode } from "./components/common/DraggableNode";
 import { ThemeToggle } from "./ThemeToggle";
 
 export const PipelineToolbar = () => {

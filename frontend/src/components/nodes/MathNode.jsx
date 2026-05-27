@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BaseNode from "../components/BaseNode";
+import BaseNode from "../common/BaseNode";
 
 const MathNode = ({ data }) => {
   const [operation, setOperation] = useState(data?.operation || "add");

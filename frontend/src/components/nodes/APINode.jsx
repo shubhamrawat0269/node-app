@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BaseNode from "../components/BaseNode";
+import BaseNode from "../common/BaseNode";
 
 const APINode = ({ data }) => {
   const [url, setUrl] = useState(data?.url || "");
