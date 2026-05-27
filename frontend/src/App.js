@@ -1,6 +1,6 @@
 import { PipelineToolbar } from "./toolbar";
 import { PipelineUI } from "./ui";
-import { SubmitButton } from "./submit";
+import { SubmitButton } from "./components/common/SubmitButton";
 import { ThemeProvider } from "./ThemeContext";
 
 function App() {
