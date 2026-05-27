@@ -8,8 +8,28 @@ const BaseNode = ({
   children,
   width = 260,
 }) => {
+  // Responsive width calculation
+  const getResponsiveWidth = () => {
+    if (typeof window !== "undefined") {
+      const screenWidth = window.innerWidth;
+      if (screenWidth < 480) {
+        return Math.max(200, screenWidth * 0.8);
+      } else if (screenWidth < 768) {
+        return 240;
+      }
+    }
+    return width;
+  };
+
   return (
-    <div className="node-container" style={{ width }}>
+    <div
+      className="node-container"
+      style={{
+        width: getResponsiveWidth(),
+        minWidth: "180px",
+        maxWidth: "320px",
+      }}
+    >
       <div className="node-header">
         <h3>{title}</h3>
       </div>

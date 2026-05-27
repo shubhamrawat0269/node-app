@@ -27,7 +27,13 @@ export const DraggableNode = ({ type, label }) => {
         transition: "background-color 0.3s ease",
         color: "#fff",
         padding: "0.35rem 1rem",
-        fontSize: `${"15px"}`,
+        fontSize: "15px",
+        borderRadius: "6px",
+        border: "none",
+        whiteSpace: "nowrap",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        userSelect: "none",
       }}
       draggable
     >
