@@ -133,11 +133,24 @@ code {
   gap: 0.75rem;
 }
 
+.tool-panel {
+  position: absolute;
+  top: 14%;
+}
+
 .toolbar-nodes {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  width: 200px;
+}
+
+.toolbar-node-list {
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
 }
 
 .toolbar-header {
@@ -175,8 +188,7 @@ code {
   cursor: not-allowed;
 }
 
-/* App layout: make the canvas responsive and fill available viewport height */
-.app-root {
+.container {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -187,14 +199,15 @@ code {
   flex: 1 1 auto;
   min-height: 60vh;
   overflow: hidden;
+
+  position: relative;
 }
 
-/* Ensure the React Flow canvas stretches inside the wrapper */
 .reactflow-wrapper .react-flow {
   height: 100%;
 }
 
-/* Node Styling */
+/* Node Styling statr here */
 
 .node-container {
   background: var(--bg-primary);

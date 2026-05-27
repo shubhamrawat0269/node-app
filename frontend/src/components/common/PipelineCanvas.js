@@ -14,6 +14,7 @@ import MathNode from "../nodes/MathNode";
 
 import "reactflow/dist/style.css";
 import { useTheme } from "../../hooks/useTheme";
+import { NodeToolbar } from "./NodeToolbar";
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -128,6 +129,10 @@ export const PipelineCanvas = () => {
           <Controls />
           <MiniMap />
         </ReactFlow>
+      </div>
+      <div className="tool-panel">
+        {/* Panel Component */}
+        <NodeToolbar />
       </div>
     </>
   );

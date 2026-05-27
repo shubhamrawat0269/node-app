@@ -6,7 +6,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 function App() {
   return (
     <ThemeProvider>
-      <div className="app-root">
+      <div className="container">
         <Header />
         <PipelineCanvas />
         <SubmitButton />
