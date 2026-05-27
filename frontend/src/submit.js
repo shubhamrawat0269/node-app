@@ -7,9 +7,12 @@ export const SubmitButton = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        padding: "20px",
       }}
     >
-      <button type="submit">Submit</button>
+      <button className="submit-btn" type="submit">
+        Submit
+      </button>
     </div>
   );
 };

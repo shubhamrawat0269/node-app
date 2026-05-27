@@ -2,6 +2,7 @@ import { useState, useRef, useCallback } from "react";
 import ReactFlow, { Controls, Background, MiniMap } from "reactflow";
 import { useStore } from "./store";
 import { shallow } from "zustand/shallow";
+import { useTheme } from "./ThemeContext";
 import { InputNode } from "./nodes/InputNode";
 import { LLMNode } from "./nodes/LLMNode";
 import { OutputNode } from "./nodes/OutputNode";
@@ -39,6 +40,7 @@ const selector = (state) => ({
 });
 
 export const PipelineUI = () => {
+  const { isDarkMode } = useTheme();
   const reactFlowWrapper = useRef(null);
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
   const {
@@ -67,7 +69,6 @@ export const PipelineUI = () => {
         );
         const type = appData?.nodeType;
 
-        // check if the dropped element is valid
         if (typeof type === "undefined" || !type) {
           return;
         }
@@ -96,9 +97,21 @@ export const PipelineUI = () => {
     event.dataTransfer.dropEffect = "move";
   }, []);
 
+  // Theme-aware colors
+  const bgColor = isDarkMode ? "#111827" : "#ffffff";
+  const gridColor = isDarkMode ? "#374151" : "#d1d5db";
+
   return (
     <>
-      <div ref={reactFlowWrapper} style={{ width: "100wv", height: "70vh" }}>
+      <div
+        ref={reactFlowWrapper}
+        style={{
+          width: "100%",
+          height: "70vh",
+          backgroundColor: bgColor,
+          transition: "background-color 0.3s ease",
+        }}
+      >
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -113,7 +126,7 @@ export const PipelineUI = () => {
           snapGrid={[gridSize, gridSize]}
           connectionLineType="smoothstep"
         >
-          <Background color="#aaa" gap={gridSize} />
+          <Background color={gridColor} gap={gridSize} />
           <Controls />
           <MiniMap />
         </ReactFlow>
