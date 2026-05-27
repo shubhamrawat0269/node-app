@@ -64,46 +64,73 @@ code {
 
 /* Theme Toggle Button */
 .theme-toggle-btn {
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  border: none;
-  border-radius: 8px;
-  padding: 8px 12px;
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 6px;
   cursor: pointer;
-  font-size: 18px;
-  transition: all 0.2s ease;
-  display: flex;
+  font-size: 16px;
+  transition: all 0.15s ease;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 44px;
-  min-height: 44px;
-  hover: opacity 0.8;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 1px 4px var(--shadow-sm);
 }
 
 .theme-toggle-btn:hover {
-  opacity: 0.8;
-  transform: scale(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px var(--shadow-md);
 }
 
 .theme-toggle-btn:active {
-  transform: scale(0.95);
+  transform: translateY(0);
+}
+
+/* Toolbar title and tools */
+.toolbar-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toolbar-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.toolbar-subtitle {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.toolbar-tools {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
 }
 
 /* Toolbar Styling */
 .toolbar-container {
   background-color: var(--toolbar-bg);
   border-bottom: 1px solid var(--border-color);
-  padding: 12px 16px;
+  padding: 12px 18px;
   display: flex;
   gap: 12px;
   align-items: center;
   flex-wrap: wrap;
   transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 .toolbar-primary {
   display: flex;
   align-items: center;
+  gap: 0.75rem;
 }
 
 .toolbar-nodes {
@@ -147,4 +174,23 @@ code {
 .submit-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* App layout: make the canvas responsive and fill available viewport height */
+.app-root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.reactflow-wrapper {
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 60vh;
+  overflow: hidden;
+}
+
+/* Ensure the React Flow canvas stretches inside the wrapper */
+.reactflow-wrapper .react-flow {
+  height: 100%;
 }
