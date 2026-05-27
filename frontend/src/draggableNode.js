@@ -1,4 +1,3 @@
-// draggableNode.js
 import { useTheme } from "./ThemeContext";
 
 export const DraggableNode = ({ type, label }) => {
@@ -21,16 +20,15 @@ export const DraggableNode = ({ type, label }) => {
       onDragEnd={(event) => (event.target.style.cursor = "grab")}
       style={{
         cursor: "grab",
-        minWidth: "80px",
-        height: "60px",
         display: "flex",
         alignItems: "center",
         borderRadius: "8px",
-        backgroundColor: isDarkMode ? "#3b82f6" : "#1C2536",
+        backgroundColor: isDarkMode ? "#3b89e0" : "#1C2536",
         justifyContent: "center",
         flexDirection: "column",
         transition: "background-color 0.3s ease",
         color: "#fff",
+        padding: '0.5rem 1.25rem'
       }}
       draggable
     >

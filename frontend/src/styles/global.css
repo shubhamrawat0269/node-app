@@ -101,6 +101,11 @@ code {
   transition: background-color 0.3s ease;
 }
 
+.toolbar-primary {
+  display: flex;
+  align-items: center;
+}
+
 .toolbar-nodes {
   display: flex;
   gap: 10px;
