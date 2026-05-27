@@ -4,8 +4,8 @@ export const SubmitButton = () => {
       style={{
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
-        padding: "10px",
+        justifyContent: "end",
+        padding: "8px",
       }}
     >
       <button className="submit-btn" type="submit">

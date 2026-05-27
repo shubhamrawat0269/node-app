@@ -160,8 +160,8 @@ code {
   background-color: var(--button-bg);
   color: var(--button-text);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 12px 24px;
+  border-radius: 4px;
+  padding: 8px 18px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
