@@ -1,34 +1,20 @@
-// llmNode.js
+import BaseNode from "../components/BaseNode";
 
-import { Handle, Position } from 'reactflow';
-
-export const LLMNode = ({ id, data }) => {
-
+export const LLMNode = () => {
   return (
-    <div style={{width: 200, height: 80, border: '1px solid black'}}>
-      <Handle
-        type="target"
-        position={Position.Left}
-        id={`${id}-system`}
-        style={{top: `${100/3}%`}}
-      />
-      <Handle
-        type="target"
-        position={Position.Left}
-        id={`${id}-prompt`}
-        style={{top: `${200/3}%`}}
-      />
-      <div>
-        <span>LLM</span>
+    <BaseNode
+      title="LLM Node"
+      inputs={[{ id: "prompt" }]}
+      outputs={[{ id: "response" }]}
+    >
+      <div className="node-input">
+        <label>Model</label>
+
+        <select>
+          <option>GPT-4</option>
+          <option>Claude</option>
+        </select>
       </div>
-      <div>
-        <span>This is a LLM.</span>
-      </div>
-      <Handle
-        type="source"
-        position={Position.Right}
-        id={`${id}-response`}
-      />
-    </div>
+    </BaseNode>
   );
-}
+};
