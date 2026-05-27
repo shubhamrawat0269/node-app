@@ -1,27 +1,43 @@
 import { useState } from "react";
-import { Handle, Position } from "reactflow";
+import BaseNode from "../components/BaseNode";
 
-export const FilterNode = ({ id, data }) => {
-  const [filter, setFilter] = useState(data?.filter || "Contains");
+const FilterNode = ({ data }) => {
+  const [condition, setCondition] =
+    useState(data?.condition || "");
 
   return (
-    <div style={{ width: 220, height: 120, border: "1px solid black" }}>
-      <Handle type="target" position={Position.Left} id={`${id}-input`} />
-      <div>
-        <strong>Filter</strong>
+    <BaseNode
+      title="Filter Node"
+      inputs={[
+        { id: "items" },
+      ]}
+      outputs={[
+        { id: "filtered-items" },
+      ]}
+    >
+      <div className="node-input">
+        <label>Condition</label>
+
+        <input
+          type="text"
+          placeholder="item.age > 18"
+          value={condition}
+          onChange={(e) =>
+            setCondition(e.target.value)
+          }
+        />
       </div>
-      <div>
-        <label>
-          Condition:
-          <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-            <option value="Contains">Contains</option>
-            <option value="StartsWith">Starts with</option>
-            <option value="EndsWith">Ends with</option>
-            <option value="Equals">Equals</option>
-          </select>
-        </label>
+
+      <div className="node-input">
+        <label>Mode</label>
+
+        <select>
+          <option>Include</option>
+          <option>Exclude</option>
+        </select>
       </div>
-      <Handle type="source" position={Position.Right} id={`${id}-output`} />
-    </div>
+    </BaseNode>
   );
 };
+
+export default FilterNode;

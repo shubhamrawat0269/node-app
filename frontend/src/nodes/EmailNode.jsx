@@ -1,39 +1,39 @@
 import { useState } from "react";
-import { Handle, Position } from "reactflow";
+import BaseNode from "../components/BaseNode";
 
-export const EmailNode = ({ id, data }) => {
-  const [recipient, setRecipient] = useState(
-    data?.recipient || "example@email.com",
-  );
-  const [subject, setSubject] = useState(data?.subject || "Hello");
+const EmailNode = ({ data }) => {
+  const [recipient, setRecipient] = useState(data?.recipient || "");
+  const [subject, setSubject] = useState(data?.subject || "");
 
   return (
-    <div style={{ width: 220, height: 140, border: "1px solid black" }}>
-      <Handle type="target" position={Position.Left} id={`${id}-input`} />
-      <div>
-        <strong>Email</strong>
+    <BaseNode
+      title="Email Node"
+      inputs={[{ id: "message" }, { id: "attachments" }]}
+      outputs={[{ id: "status" }]}
+    >
+      <div className="node-input">
+        <label>Recipient</label>
+
+        <input
+          type="email"
+          placeholder="john@example.com"
+          value={recipient}
+          onChange={(e) => setRecipient(e.target.value)}
+        />
       </div>
-      <div>
-        <label style={{ display: "block", marginBottom: 6 }}>
-          To:
-          <input
-            type="email"
-            value={recipient}
-            onChange={(e) => setRecipient(e.target.value)}
-            style={{ width: "100%" }}
-          />
-        </label>
-        <label>
-          Subject:
-          <input
-            type="text"
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
-            style={{ width: "100%" }}
-          />
-        </label>
+
+      <div className="node-input">
+        <label>Subject</label>
+
+        <input
+          type="text"
+          placeholder="Enter subject"
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
+        />
       </div>
-      <Handle type="source" position={Position.Right} id={`${id}-output`} />
-    </div>
+    </BaseNode>
   );
 };
+
+export default EmailNode;

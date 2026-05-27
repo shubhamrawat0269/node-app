@@ -1,41 +1,35 @@
 import { useState } from "react";
-import { Handle, Position } from "reactflow";
+import BaseNode from "../components/BaseNode";
 
-export const MathNode = ({ id, data }) => {
-  const [operation, setOperation] = useState(data?.operation || "Add");
+const MathNode = ({ data }) => {
+  const [operation, setOperation] = useState(data?.operation || "add");
 
   return (
-    <div style={{ width: 220, height: 120, border: "1px solid black" }}>
-      <Handle
-        type="target"
-        position={Position.Left}
-        id={`${id}-a`}
-        style={{ top: "30%" }}
-      />
-      <Handle
-        type="target"
-        position={Position.Left}
-        id={`${id}-b`}
-        style={{ top: "70%" }}
-      />
-      <div>
-        <strong>Math</strong>
+    <BaseNode
+      title="Math Node"
+      inputs={[{ id: "value-a" }, { id: "value-b" }]}
+      outputs={[{ id: "result" }]}
+    >
+      <div className="node-input">
+        <label>Operation</label>
+
+        <select
+          value={operation}
+          onChange={(e) => setOperation(e.target.value)}
+        >
+          <option value="add">Add</option>
+          <option value="subtract">Subtract</option>
+          <option value="multiply">Multiply</option>
+          <option value="divide">Divide</option>
+        </select>
       </div>
-      <div>
-        <label>
-          Operation:
-          <select
-            value={operation}
-            onChange={(e) => setOperation(e.target.value)}
-          >
-            <option value="Add">Add</option>
-            <option value="Subtract">Subtract</option>
-            <option value="Multiply">Multiply</option>
-            <option value="Divide">Divide</option>
-          </select>
-        </label>
+
+      <div className="node-input">
+        <label>Precision</label>
+        <input type="number" min="0" max="10" defaultValue="2" />
       </div>
-      <Handle type="source" position={Position.Right} id={`${id}-result`} />
-    </div>
+    </BaseNode>
   );
 };
+
+export default MathNode;

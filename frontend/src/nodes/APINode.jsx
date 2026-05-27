@@ -1,37 +1,39 @@
 import { useState } from "react";
-import { Handle, Position } from "reactflow";
+import BaseNode from "../components/BaseNode";
 
-export const APINode = ({ id, data }) => {
-  const [url, setUrl] = useState(data?.url || "https://api.example.com");
+const APINode = ({ data }) => {
+  const [url, setUrl] = useState(data?.url || "");
   const [method, setMethod] = useState(data?.method || "GET");
 
   return (
-    <div style={{ width: 220, height: 120, border: "1px solid black" }}>
-      <Handle type="target" position={Position.Left} id={`${id}-in`} />
-      <div>
-        <strong>API</strong>
+    <BaseNode
+      title="API Node"
+      inputs={[{ id: "request-body" }, { id: "headers" }]}
+      outputs={[{ id: "response" }, { id: "error" }]}
+    >
+      <div className="node-input">
+        <label>Method</label>
+
+        <select value={method} onChange={(e) => setMethod(e.target.value)}>
+          <option>GET</option>
+          <option>POST</option>
+          <option>PUT</option>
+          <option>DELETE</option>
+        </select>
       </div>
-      <div>
-        <label style={{ display: "block", marginBottom: 6 }}>
-          URL:
-          <input
-            type="text"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            style={{ width: "100%" }}
-          />
-        </label>
-        <label>
-          Method:
-          <select value={method} onChange={(e) => setMethod(e.target.value)}>
-            <option value="GET">GET</option>
-            <option value="POST">POST</option>
-            <option value="PUT">PUT</option>
-            <option value="DELETE">DELETE</option>
-          </select>
-        </label>
+
+      <div className="node-input">
+        <label>API URL</label>
+
+        <input
+          type="text"
+          placeholder="https://api.example.com"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+        />
       </div>
-      <Handle type="source" position={Position.Right} id={`${id}-out`} />
-    </div>
+    </BaseNode>
   );
 };
+
+export default APINode;

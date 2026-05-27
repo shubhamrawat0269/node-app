@@ -1,28 +1,36 @@
 import { useState } from "react";
-import { Handle, Position } from "reactflow";
+import BaseNode from "../components/BaseNode";
 
-export const DelayNode = ({ id, data }) => {
-  const [delayMs, setDelayMs] = useState(data?.delayMs || 1000);
+const DelayNode = ({ data }) => {
+  const [delay, setDelay] = useState(data?.delay || 1000);
 
   return (
-    <div style={{ width: 220, height: 120, border: "1px solid black" }}>
-      <Handle type="target" position={Position.Left} id={`${id}-input`} />
-      <div>
-        <strong>Delay</strong>
+    <BaseNode
+      title="Delay Node"
+      inputs={[{ id: "input" }]}
+      outputs={[{ id: "output" }]}
+    >
+      <div className="node-input">
+        <label>Delay (ms)</label>
+
+        <input
+          type="number"
+          value={delay}
+          min="0"
+          onChange={(e) => setDelay(e.target.value)}
+        />
       </div>
-      <div>
-        <label>
-          Delay (ms):
-          <input
-            type="number"
-            value={delayMs}
-            min={0}
-            onChange={(e) => setDelayMs(Number(e.target.value))}
-            style={{ width: "100%" }}
-          />
-        </label>
+
+      <div
+        style={{
+          fontSize: "12px",
+          color: "#666",
+        }}
+      >
+        Delays execution flow
       </div>
-      <Handle type="source" position={Position.Right} id={`${id}-output`} />
-    </div>
+    </BaseNode>
   );
 };
+
+export default DelayNode;
