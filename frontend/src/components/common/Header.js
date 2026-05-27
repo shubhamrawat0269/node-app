@@ -1,5 +1,5 @@
 import { DraggableNode } from "./DraggableNode";
-import { ThemeToggle } from "../../ThemeToggle";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const Header = () => {
   return (

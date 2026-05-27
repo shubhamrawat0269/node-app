@@ -2,7 +2,7 @@ import { useState, useRef, useCallback } from "react";
 import ReactFlow, { Controls, Background, MiniMap } from "reactflow";
 import { useStore } from "./store";
 import { shallow } from "zustand/shallow";
-import { useTheme } from "./ThemeContext";
+import { useTheme } from "./context/ThemeContext";
 import { InputNode } from "./components/nodes/InputNode";
 import { LLMNode } from "./components/nodes/LLMNode";
 import { OutputNode } from "./components/nodes/OutputNode";
@@ -39,7 +39,7 @@ const selector = (state) => ({
   onConnect: state.onConnect,
 });
 
-export const PipelineUI = () => {
+export const PipelineCanvas = () => {
   const { isDarkMode } = useTheme();
   const reactFlowWrapper = useRef(null);
   const [reactFlowInstance, setReactFlowInstance] = useState(null);

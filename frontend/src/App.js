@@ -1,14 +1,14 @@
 import { Header } from "./components/common/Header";
-import { PipelineUI } from "./ui";
+import { PipelineCanvas } from "./PipelineCanvas";
 import { SubmitButton } from "./components/common/SubmitButton";
-import { ThemeProvider } from "./ThemeContext";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   return (
     <ThemeProvider>
       <div className="app-root">
         <Header />
-        <PipelineUI />
+        <PipelineCanvas />
         <SubmitButton />
       </div>
     </ThemeProvider>
