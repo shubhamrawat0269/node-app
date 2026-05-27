@@ -1,4 +1,4 @@
-import { useTheme } from "../../context/ThemeContext";
+import { useTheme } from "../../hooks/useTheme";
 
 export const DraggableNode = ({ type, label }) => {
   const { isDarkMode } = useTheme();

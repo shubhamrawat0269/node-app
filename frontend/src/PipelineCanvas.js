@@ -2,7 +2,6 @@ import { useState, useRef, useCallback } from "react";
 import ReactFlow, { Controls, Background, MiniMap } from "reactflow";
 import { useStore } from "./store";
 import { shallow } from "zustand/shallow";
-import { useTheme } from "./context/ThemeContext";
 import { InputNode } from "./components/nodes/InputNode";
 import { LLMNode } from "./components/nodes/LLMNode";
 import { OutputNode } from "./components/nodes/OutputNode";
@@ -14,6 +13,7 @@ import FilterNode from "./components/nodes/FilterNode";
 import MathNode from "./components/nodes/MathNode";
 
 import "reactflow/dist/style.css";
+import { useTheme } from "./hooks/useTheme";
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
