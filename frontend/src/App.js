@@ -1,4 +1,4 @@
-import { PipelineToolbar } from "./toolbar";
+import { Header } from "./components/common/Header";
 import { PipelineUI } from "./ui";
 import { SubmitButton } from "./components/common/SubmitButton";
 import { ThemeProvider } from "./ThemeContext";
@@ -7,7 +7,7 @@ function App() {
   return (
     <ThemeProvider>
       <div className="app-root">
-        <PipelineToolbar />
+        <Header />
         <PipelineUI />
         <SubmitButton />
       </div>

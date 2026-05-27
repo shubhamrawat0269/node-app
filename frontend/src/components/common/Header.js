@@ -1,7 +1,7 @@
-import { DraggableNode } from "./components/common/DraggableNode";
-import { ThemeToggle } from "./ThemeToggle";
+import { DraggableNode } from "./DraggableNode";
+import { ThemeToggle } from "../../ThemeToggle";
 
-export const PipelineToolbar = () => {
+export const Header = () => {
   return (
     <div className="toolbar-container">
       <div className="toolbar-header">
@@ -12,7 +12,9 @@ export const PipelineToolbar = () => {
               <ThemeToggle />
             </div>
           </div>
-          <p className="toolbar-subtitle">Design and connect nodes to build flows</p>
+          <p className="toolbar-subtitle">
+            Design and connect nodes to build flows
+          </p>
         </div>
 
         <div className="toolbar-nodes">

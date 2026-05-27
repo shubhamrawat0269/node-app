@@ -1,10 +1,15 @@
-import React, { createContext, useState, useCallback, useEffect } from "react";
+import {
+  useContext,
+  createContext,
+  useState,
+  useCallback,
+  useEffect,
+} from "react";
 
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Check localStorage or system preference
     const saved = localStorage.getItem("theme-mode");
     if (saved) {
       return saved === "dark";
@@ -35,7 +40,7 @@ export const ThemeProvider = ({ children }) => {
 };
 
 export const useTheme = () => {
-  const context = React.useContext(ThemeContext);
+  const context = useContext(ThemeContext);
   if (!context) {
     throw new Error("useTheme must be used within ThemeProvider");
   }
