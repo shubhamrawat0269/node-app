@@ -131,7 +131,6 @@ export const PipelineCanvas = () => {
         </ReactFlow>
       </div>
       <div className="tool-panel">
-        {/* Panel Component */}
         <NodeToolbar />
       </div>
     </>

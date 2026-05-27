@@ -90,11 +90,6 @@ code {
 }
 
 /* Toolbar title and tools */
-.toolbar-title-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
 
 .toolbar-title {
   margin: 0;
