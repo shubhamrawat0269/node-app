@@ -7,16 +7,14 @@ import { ThemeProvider } from "./context/ThemeContext";
 function App() {
   return (
     <>
-<Toaster
-        position="top-right"
-      />
-    <ThemeProvider>
-      <div className="container">
-        <Header />
-        <PipelineCanvas />
-        <SubmitButton />
-      </div>
-    </ThemeProvider>
+      <Toaster position="top-right" />
+      <ThemeProvider>
+        <div className="container">
+          <Header />
+          <PipelineCanvas />
+          <SubmitButton />
+        </div>
+      </ThemeProvider>
     </>
   );
 }
