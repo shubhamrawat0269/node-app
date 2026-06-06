@@ -90,7 +90,7 @@ export const PipelineCanvas = () => {
         addNode(newNode);
       }
     },
-    [reactFlowInstance],
+    [reactFlowInstance, addNode, getNodeID],
   );
 
   const onDragOver = useCallback((event) => {
